@@ -1,7 +1,9 @@
-import { Navbar, Container, Button } from "react-bootstrap"
+import { Row, Container } from "react-bootstrap"
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import useLocalStorage from "use-local-storage"
+import ProfileSideBar from "../components/ProfileSideBar"
+import ProfileMidBody from "../components/ProfileMidBody"
 
 export default function ProfilePage() {
 
@@ -21,19 +23,11 @@ export default function ProfilePage() {
 
     return (
         <>
-            <Navbar bg="light">
-                <Container>
-                    <Navbar.Brand href="/">
-                        <i className="bi bi-twitter" style={{ fontSize: 30, color: "dodgerblue" }}></i>
-                    </Navbar.Brand>
-                    <Navbar.Collapse className="justify-content-end">
-                        <Button variant="primary" onClick={handleLogout}>Logout</Button>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
-
             <Container>
-                <h2>Your Profile</h2>
+                <Row>
+                    <ProfileSideBar handleLogout={handleLogout} />
+                    <ProfileMidBody />
+                </Row>
             </Container>
         </>
     )
